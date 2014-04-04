@@ -35,7 +35,7 @@ func init() {
 // Accepting incoming connections
 
 func (m *SocketManager) RegisterConnection(conn *SocketConnection) {
-	log.Println(conn)
+	log.Println("New connection", conn)
 	// Subscribe to top-level currency
 	m.Connections[conn] = true
 }

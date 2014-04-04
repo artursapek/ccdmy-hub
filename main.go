@@ -23,6 +23,11 @@ func LiveTickerHandler(w http.ResponseWriter, r *http.Request) {
 
 	defer func () { sockets.Manager.Unregister <- c }()
 
+	sockets.Manager.Register <- c
+
+	c.Send <- []byte("Hey bitch")
+
+	go c.Reader()
 	c.Writer()
 }
 
